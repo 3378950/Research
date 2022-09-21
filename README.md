@@ -1,4 +1,4 @@
-## 深度学习基础
+## [深度学习基础](./Base/README.md)
 
 ## 文献精读仓库
 
@@ -6,8 +6,7 @@
 * [ALexNet](./CNN/AlexNet.md)
 * [VGG](./CNN/VGG.md)
 * [ResNet](./CNN/ResNet.md)
-* [GoogleNet](./CNN/GoogleNet.md)
-* [DenseNet]
+
 
 ### NLP
 * Transformer

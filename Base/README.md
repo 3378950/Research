@@ -130,4 +130,10 @@ $W^Tx + b$ , $W$ 为卷积核权值， $b$ 为卷积核偏置
 * 图像增强 solve 过拟合
 
 
+### NLP
 
+#### RNN
+
+#### Attention
+
+#### Transformer
