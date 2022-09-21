@@ -71,11 +71,12 @@ $$
 #### 卷积神经网络
 
 * 采用平均卷积和，卷积后的图像产生了水平、竖直的条状
-* 高斯卷积和：根据邻域像素与中心的远近程度分配权重  $ G_\sigma = \frac{1}{2\pi\sigma^2}e^{-\frac{(x^2 + y^2)}{2\sigma^2}}$
+* 高斯卷积和：根据邻域像素与中心的远近程度分配权重  $G_{\sigma} = \frac{1}{2 \pi \sigma^2 } e^{- \frac{(x^2 + y^2)}{2\sigma^2}} $
     1. 确定卷积核尺寸
     2. 设置高斯函数标准差 $\sigma$
     3. 计算各位置的权重
-    4. 对权重值归一化： $\frac{G_\sigma(x, y)}{\sum\limits_{(x, y)}G_\sigma(x, y)}$
+    4. 对权重值归一化： 
+    $\frac{G_\sigma(x, y)}{\sum\limits_{(x, y)}G_\sigma(x, y)}$
     > 权重归一化不会对信号衰减或增强
 
 * 方差变化：方差越大，平滑效果越明显
@@ -84,16 +85,22 @@ $$
 * 高斯卷积核：去除图像中高频成分
 * 可分离：可分解为两个以为高斯的乘积，小模板可减小计算量
 * 边缘检测：图像中亮度明显而剧烈的变化的地方
-    * 图像求导公式：  $ \frac{\partial f(x, y)}{\partial x} \approx f(x + 1, y) - f(x, y)$
-        *  $\begin{bmatrix}-1
-            & 1
-            \end{bmatrix}$：纵向明显
-        *  $ \begin{bmatrix}
-            -1
-            \\ 
-            1
-            \end{bmatrix}$ :横向明显
-    * 卷积具有结合性： $ \frac{d}{dx}(f \ast g) = f\ast (\frac{d}{dx} g), 其中 \frac{d}{dx} g为高斯一阶偏导核 $
+    * 图像求导公式：  $\frac{\partial f(x, y)}{\partial x} \approx f(x + 1, y) - f(x, y) $
+    *     
+   $$
+   \begin{bmatrix}
+   1  \\
+   -1 
+   \end{bmatrix} 横向明显$$
+   
+   * $$
+   \begin{bmatrix}
+   1  &
+   -1 
+   \end{bmatrix}纵向明显$$
+
+    * 卷积具有结合性： 
+    $\frac{d}{dx}(f \ast g) = f\ast (\frac{d}{dx} g), 其中 \frac{d}{dx} g为高斯一阶偏导核$
     * 小方差高斯一阶偏导核模板可检测细粒度边缘信息
 * Canny 边缘检测器
 * 纹理表示：基于卷积核组的纹理表示方法
@@ -103,14 +110,15 @@ $$
         2. 卷积核组 -> 特征响应图
         3. 利用特征响应图的某种统计信息表示图像中的纹理
 
-* 卷积操作： $ W^Tx + b$ , $W$ 为卷积核权值， $b$ 为卷积核偏置
-    * input:  $ W_1 \times H_1$ output: $ W_2 \times H_2 $
+* 卷积操作： 
+$W^Tx + b$ , $W$ 为卷积核权值， $b$ 为卷积核偏置
+    * input:  $W_1 \times H_1$ output: $W_2 \times H_2$
     * 特征响应图的深度 = 卷积核个数 ：K
     * 卷积核尺寸：F
     * 卷积步长 Stride ： S
     * 边界填充 Padding ： P
     * 输入输出关系： 
-    $$ W_2 = (W_1 - F + 2P) / S + 1 \\ H_2 = (H_1 - F + 2P) / S + 1$$
+    $$W_2 = (W_1 - F + 2P) / S + 1 \\ H_2 = (H_1 - F + 2P) / S + 1$$
     * Consider: 
         1. 卷积核宽、高
         2. padding
