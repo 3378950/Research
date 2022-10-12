@@ -134,6 +134,8 @@ $W^Tx + b$ , $W$ 为卷积核权值， $b$ 为卷积核偏置
 
 #### RNN
 
+#### LSTM
+
 #### Attention
 
 #### Transformer
