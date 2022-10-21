@@ -133,6 +133,8 @@ $W^Tx + b$ , $W$ 为卷积核权值， $b$ 为卷积核偏置
 ### NLP
 
 #### RNN
+> reference: http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+* 解决的问题：
 
 #### LSTM
 
