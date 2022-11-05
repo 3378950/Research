@@ -7,13 +7,29 @@
     * 另外还有 $D_u = \{(x_{l + 1}, y_{l + 1}), (x_{l + 2}, y_{l + 2}), ..., (x_{l + u}, y_{l + u})\}, l \ll u$ ,这u个样本均为类别标记未知
     * 若直接使用传统监督学习技术，则仅有 $D_u$ 能用于构建模型 $D_u$ 所包含的信息被浪费了.另一方面，若 $D_u$ 较小，则由于训练、样本不足，学得模型的泛化能力往往不佳
     * 分类与分布：有标记的样本已经有了明确的分类，而对于无标记的样本，若他们与有标记样本是从同样的数据源独立同分布采样而来，它们所包含的数据分布的信息对模型是有意义的
-    * 未标记样本所揭示的数据分布信息与类别标记相联系的假设：==相似的样本拥有相似的输出==
+    * 未标记样本所揭示的数据分布信息与类别标记相联系的假设：**相似的样本拥有相似的输出**
     * 半监督学习可划分为纯半监督学习和直推学习
     ![SSL-classification](../imgs/SSL.PNG)
 
 2. 生成式方法
 ...
 
+
+### SSL-models
+***
+* [UDA](https://arxiv.org/pdf/1904.12848v6.pdf): Unsupervised Data Augmentation for Consistency Training
+    ![](https://img-blog.csdnimg.cn/20210321123929596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3plcGh5cl93YW5n,size_16,color_FFFFFF,t_70)
+    * 关键：对无标记数据进行数据增强
+    * 效果：使用很少的标注数据，就可达到与监督学习媲美甚至超越的效果
+    * 数据增强
+        * RandAugment：Python Image Library(PIL)中均匀采样数据增强方法
+        * Back Translation：语言A翻译到语言B，再从B翻译回语言A
+        * TF-IDF分的单词替换掉，保持高TF-IDF分
+    * 一致性损失函数
+    ![](https://img-blog.csdnimg.cn/20210321123857131.png)
+        
+    * Trick in training ...
+***
 
 
 ### Specific Fields - Application & Inspiration
@@ -23,7 +39,7 @@
     * Cite: 孔江波，朱 贺，张延文，等． 基于实例置信度推断的半监督小样本植物病害图像识别［J］． 江苏农业科学，2022，50( 12) : 229 － 237．doi: 10． 15889 /j． issn． 1002 － 1302． 2022． 12． 035
     * 使用方法：首先构建ResNet-12网络提取有标注样本和无标注样本的特征；其次利用极少数有标签的植物病害样本训练SVM分类器，用分类器推断无标注样本的类别并赋予伪标签；然后采用实例置信度推断(ICI)算法获取伪标注样本的置信度，迭代选择可信的伪标签样本加入训练拓展支持集；最后应用训练后的网络模型对植物病害图像进行识别。
     ![SSL-ICI](../imgs/SSL-ICI.PNG)
-
+***
 * SSA-Net: Spatial self-attention network for COVID-19 pneumonia infection segmentation with semi-supervised few-shot learning
     * 问题：胸部CT图像不规则的形状和模糊的边界
     * 工作：
