@@ -1,12 +1,11 @@
-## [深度学习基础](./Base/README.md)
+## [机器学习](./ML/README.md)
 
-## 文献精读仓库 - Classic Models
+## [深度学习基础](./DL-Base/README.md)
+
+## Classic Models
 
 ### CV - [CNN](./CNN/README.md)
 
-
-
-
-## [Semi-Supervision-Learning](./SSL/README.md)
+## [Semi-Supervised-Learning](./SSL/README.md)
 
 
